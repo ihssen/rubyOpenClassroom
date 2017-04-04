@@ -1,0 +1,15 @@
+<%= form_for @book do %>
+  <input type="text" name="title" />
+  <p><%= @book.errors[:title].first %></p>
+  <select name="category_id">
+    <% categories.each do |category| %>
+      <option value="<%= category.id %>"><%= category.name %></option>
+    <% end %>
+  </select>
+  <% if @book.persisted? %>
+    <input type="submit" value="Modifier le livre" />
+  <% else %>
+    <input type="submit" value="Ajouter le livre" />
+  <% end %>
+
+<% end %>

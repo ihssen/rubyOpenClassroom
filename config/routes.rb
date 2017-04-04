@@ -1,13 +1,8 @@
 Rails.application.routes.draw do
   #get 'books/index'
 
-  get 'views/firstView'
-  get 'books' => 'books#index'
-  post 'books' => 'books#create'
-  get 'books/:id' => 'books#show'
-  patch 'books/:id' => 'books#update'
-  delete 'books/:id' => 'books#destroy'
-
+   resources :books, only: [:index, :create, :show, :update, :destroy]
+   
   # puis plein de commentaires
 
   # The priority is based upon order of creation: first created -> highest priority.
